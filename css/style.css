@@ -26,7 +26,6 @@ body {
   white-space:nowrap;
 }
 
-/* Center */
 .nav-center{
   position:absolute;
   left:50%;
@@ -91,7 +90,7 @@ body {
 
 .container {
   background: #fff;
-  max-width: 420px;
+  max-width: 500px;
   margin: 80px auto;
   padding: 35px 40px;
   border-radius: 12px;
@@ -217,9 +216,9 @@ button:hover { background: #16325c; }
 
 
 
-.auth-container {
+/* .auth-container {
   width: 1900px;
-  height: 400px;
+  height: 450px;
   margin-top: 80px;
   display: flex;
   justify-content: center;
@@ -229,12 +228,12 @@ button:hover { background: #16325c; }
 
 .auth-card {
    width: 500px;
-  height: 0px;
+  height: 350px;
   background: #fff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+} */
 
 .auth-card input {
   width: 100%;
@@ -266,6 +265,80 @@ button:hover { background: #16325c; }
 
 
 #postjob{
-      margin-top: 20px;
-      margin-bottom: -50px;
+  margin-top: 20px;
+  margin-bottom: -50px;
+}
+
+
+
+
+
+/* ============================= */
+/* 🔐 Home/Login Page Responsive Fix (ADD ONLY) */
+/* ============================= */
+
+/* Fix auth container layout */
+.auth-container {
+  width: 100%;
+  min-height: calc(60vh - 80px);
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fb;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  height: 330px;
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+/* Inputs consistency */
+.auth-card input{
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* Button consistency */
+.auth-card button{
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #1e3c72;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Mobile fix */
+@media (max-width: 600px){
+  .auth-container{
+    padding: 15px;
+  }
+
+  .auth-card{
+    max-width: 100%;
+    padding: 22px 18px;
+  }
+
+  .auth-card h2{
+    font-size: 20px;
+  }
+
+  .auth-card input,
+  .auth-card button{
+    font-size: 14px;
+    padding: 11px;
+  }
 }
