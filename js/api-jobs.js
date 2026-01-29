@@ -1,5 +1,4 @@
-// ================= EXTERNAL JOBS =================
-let apiJobs = [];   // GLOBAL array
+let apiJobs = [];
 
 async function fetchExternalJobs() {
   try {

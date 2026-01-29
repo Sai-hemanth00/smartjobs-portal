@@ -10,18 +10,15 @@ body {
   color: #333;
 }
 
-/* ===== NAVBAR FIX ===== */
-/* ===== PERFECT NAVBAR ALIGNMENT ===== */
 .navbar{
   background:#ffffff;
   padding:14px 40px;
   display:flex;
   align-items:center;
   box-shadow:0 4px 12px rgba(0,0,0,0.05);
-  position:relative;          /* VERY IMPORTANT */
+  position:relative;          
 }
 
-/* Left */
 .logo{
   font-size:22px;
   font-weight:700;
@@ -52,7 +49,6 @@ body {
   color:#fff;
 }
 
-/* RIGHT NAV BUTTONS */
 .nav-actions{
   margin-left:auto;
   display:flex;
@@ -93,7 +89,6 @@ body {
 
 
 
-/* ================= FORMS ================= */
 .container {
   background: #fff;
   max-width: 420px;
@@ -130,7 +125,6 @@ button {
 
 button:hover { background: #16325c; }
 
-/* ================= DASHBOARD ================= */
 .dash-header {
   text-align: center;
   margin: 40px 0 20px;
@@ -152,7 +146,6 @@ button:hover { background: #16325c; }
   align-items: center;
   padding-top: 40px;
   background: #fff;
-  /* padding: 22px; */
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: 0.3s;
@@ -183,7 +176,6 @@ button:hover { background: #16325c; }
   text-align: center;
 }
 
-/* ================= JOB LIST ================= */
 .filter-bar {
   max-width: 900px;
   margin: 30px auto;
@@ -205,7 +197,6 @@ button:hover { background: #16325c; }
   transform: translateY(-5px);
 }
 
-/* ================= APPLIED ================= */
 .applied-box {
   max-width: 700px;
   margin: 40px auto;
@@ -215,7 +206,6 @@ button:hover { background: #16325c; }
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* ================= PROFILE ================= */
 .profile-wrapper {
   max-width: 700px;
   margin: 40px auto;
@@ -230,7 +220,6 @@ button:hover { background: #16325c; }
 .auth-container {
   width: 1900px;
   height: 300px;
-  /* min-height: calc(100vh - 80px); navbar height safe */
   margin-top: 80px;
   display: flex;
   justify-content: center;
@@ -239,7 +228,6 @@ button:hover { background: #16325c; }
 }
 
 .auth-card {
-  /* width: 380px; */
    width: 500px;
   height: 300px;
   background: #fff;
@@ -277,33 +265,7 @@ button:hover { background: #16325c; }
 }
 
 
-    /* POST JOB */
-    #postjob{
+#postjob{
       margin-top: 20px;
       margin-bottom: -50px;
-    }
-
-
-
-    
-
-
-    /* .apply-btn {
-  background: #1e3a8a;
-  color: white;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
 }
-
-.apply-btn:hover {
-  background: #1e40af;
-}
-
-.apply-btn.disabled {
-  background: #9ca3af;
-  cursor: not-allowed;
-} */

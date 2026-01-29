@@ -7,7 +7,6 @@
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
 <header class="navbar">
 
   <div class="logo">💼 SmartJobs</div>
@@ -22,14 +21,10 @@
 
 </header>
 
-<!-- ================= PAGE CONTENT ================= -->
 <div class="filter-bar">
   <input type="text" id="search" placeholder="Job title, company, or location">
   <select id="catFilter">
     <option value="">All Categories</option>
-    <!-- <option>IT</option>
-    <option>HR</option>
-    <option>Finance</option> -->
   </select>
 </div>
 
@@ -37,12 +32,9 @@
 
 <script src="./js/jobs.js"></script>
 
-<!-- ================= TEMP DEMO LOGIN (REMOVE LATER) ================= -->
-<!-- ✅ THIS PART IS CRITICAL -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* TEMP DEMO LOGIN – remove later */
   if (!localStorage.getItem("loggedInUser")) {
     localStorage.setItem(
       "loggedInUser",

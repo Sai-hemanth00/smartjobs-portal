@@ -19,7 +19,6 @@
   <div class="nav-actions" id="navActions"></div>
 </header>
 
-<!-- ===== LOGIN FORM (CENTER CARD) ===== -->
 <div class="auth-container">
   <div class="auth-card">
     <input type="email" placeholder="Email">
@@ -34,7 +33,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.getElementById("navActions");
 
-  // HOME PAGE → always show Login/Register
   nav.innerHTML = `
     <a href="index.html" class="nav-btn">Login</a>
     <a href="register.html" class="nav-btn">Register</a>
@@ -42,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function loginUser() {
-  // save login state
   const user = {
     email: "test@mail.com",
     role: "user"
@@ -50,7 +47,6 @@ function loginUser() {
 
   localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-  // redirect to dashboard
   window.location.href = "dashboard.html";
 }
 </script>
