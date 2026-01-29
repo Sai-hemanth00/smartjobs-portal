@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">💼 SmartJobs</div>
+
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <div class="nav-actions" id="navActions"></div>
+</header>
+
+<!-- ===== LOGIN FORM (CENTER CARD) ===== -->
+<div class="auth-container">
+  <div class="auth-card">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="loginUser()">Login</button>
+    <p id="register">Don't have account <a href="./register.html">Register</a></p>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.getElementById("navActions");
+
+  // HOME PAGE → always show Login/Register
+  nav.innerHTML = `
+    <a href="index.html" class="nav-btn">Login</a>
+    <a href="register.html" class="nav-btn">Register</a>
+  `;
+});
+
+function loginUser() {
+  // save login state
+  const user = {
+    email: "test@mail.com",
+    role: "user"
+  };
+
+  localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+  // redirect to dashboard
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>

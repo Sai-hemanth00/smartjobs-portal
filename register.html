@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+
+  <div class="logo">💼 SmartJobs</div>
+
+  <!-- <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div> -->
+
+  <div class="nav-actions" id="navActions"></div>
+
+</header>
+
+
+<div class="container">
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+
+        <select id="role">
+            <option value="user">Job Seeker</option>
+            <option value="recruiter">Recruiter</option>
+        </select>
+
+        <button type="submit">Register</button>
+
+        <p style="text-align:center; margin-top:12px;">
+            Already have an account?
+            <a href="index.html">Login</a>
+        </p>
+
+    </form>
+</div>
+
+<script src="js/auth.js"></script>
+
+<script>
+const nav = document.getElementById("navActions");
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (nav) {
+    if (user) {
+        // nav.innerHTML = `
+        //     <a href="profile.html" class="nav-btn">Profile</a>
+        //     <a href="post-job.html" class="nav-btn">Post Job</a>
+        //     <button class="logout-btn" onclick="logout()">Logout</button>
+        // `;
+    } else {
+        nav.innerHTML = `
+            <a href="index.html" class="nav-btn">Login</a>
+            <a href="register.html" class="nav-btn">Register</a>
+        `;
+    }
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    location.href = "index.html";
+}
+</script>
+
+<script src="js/auth-ui.js"></script>
+
+</body>
+</html>

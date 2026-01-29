@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - SmartJobs</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+
+  <div class="logo">💼 SmartJobs</div>
+
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <div class="nav-actions" id="navActions"></div>
+
+</header>
+
+
+
+<div class="dash-header">
+  <h2>Welcome to SmartJobs 👋</h2>
+  <p>Your career dashboard – manage jobs, applications & profile in one place.</p>
+</div>
+
+
+
+<div class="dash-container">
+
+    <div class="dash-card" onclick="location='jobs.html'">
+        <h3>Find Jobs</h3>
+        <p>Search and apply for jobs</p>
+    </div>
+
+    <div class="dash-card" onclick="location='post-job.html'">
+        <h3>Post Job</h3>
+        <p>Publish new job openings</p>
+    </div>
+
+    <div class="dash-card" onclick="location='profile.html'">
+        <h3>My Profile</h3>
+        <p>Update your details & resume</p>
+    </div>
+
+    <div class="dash-card" onclick="location='applied.html'">
+        <h3>Applied Jobs</h3>
+        <p>Track your applications</p>
+    </div>
+
+</div>
+
+<div class="dash-stats">
+  <div class="stat-box">
+    <h3>12</h3>
+    <p>Jobs Applied</p>
+  </div>
+  <div class="stat-box">
+    <h3>3</h3>
+    <p>Interviews</p>
+  </div>
+  <div class="stat-box">
+    <h3>5</h3>
+    <p>Saved Jobs</p>
+  </div>
+  <div class="stat-box">
+    <h3>2</h3>
+    <p>Offers</p>
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById("navActions");
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (!user) location = "index.html";
+
+nav.innerHTML = `
+  <a href="profile.html" class="nav-btn">Profile</a>
+  <a href="post-job.html" class="nav-btn">Post Job</a>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+`;
+
+function logout(){
+  localStorage.removeItem("loggedInUser");
+  location.href = "index.html";
+}
+</script>
+
+
+
+
+<!-- <script src="js/auth-ui.js"></script> -->
+
+</body>
+</html>

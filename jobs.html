@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jobs</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+
+  <div class="logo">💼 SmartJobs</div>
+
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <div class="nav-actions" id="navActions"></div>
+
+</header>
+
+<!-- ================= PAGE CONTENT ================= -->
+<div class="filter-bar">
+  <input type="text" id="search" placeholder="Job title, company, or location">
+  <select id="catFilter">
+    <option value="">All Categories</option>
+    <!-- <option>IT</option>
+    <option>HR</option>
+    <option>Finance</option> -->
+  </select>
+</div>
+
+<div id="jobList"></div>
+
+<script src="./js/jobs.js"></script>
+
+<!-- ================= TEMP DEMO LOGIN (REMOVE LATER) ================= -->
+<!-- ✅ THIS PART IS CRITICAL -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* TEMP DEMO LOGIN – remove later */
+  if (!localStorage.getItem("loggedInUser")) {
+    localStorage.setItem(
+      "loggedInUser",
+      JSON.stringify({ username: "Sai" })
+    );
+  }
+
+  const nav = document.getElementById("navActions");
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (user) {
+    nav.innerHTML = `
+      <a href="profile.html" class="nav-btn">Profile</a>
+      <a href="post-job.html" class="nav-btn">Post Job</a>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    `;
+  } else {
+    nav.innerHTML = `
+      <a href="index.html" class="nav-btn">Login</a>
+      <a href="register.html" class="nav-btn">Register</a>
+    `;
+  }
+
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.onclick = () => {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    };
+  }
+
+});
+</script>
+
+</body>
+</html>

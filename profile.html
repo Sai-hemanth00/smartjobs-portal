@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Profile - SmartJobs</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+
+  <div class="logo">💼 SmartJobs</div>
+
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <div class="nav-actions" id="navActions"></div>
+
+</header>
+
+
+<div class="container profile-wrapper">
+<h2>My Profile</h2>
+
+<form id="profileForm">
+
+<label>Full Name</label>
+<input type="text" id="pname">
+
+<label>Email</label>
+<input type="email" id="pemail" disabled>
+
+<label>Profile Summary / Career Objective</label>
+<textarea id="psummary"></textarea>
+
+<div class="section-title">Key Skills</div>
+<input type="text" id="pskills" placeholder="HTML, CSS, JavaScript">
+
+<div class="section-title">Education</div>
+<input type="text" id="pedu" placeholder="B.Tech CSE, College, 2025">
+
+<div class="section-title">Experience</div>
+<input type="text" id="pexp" placeholder="Fresher / 1 Year">
+
+<div class="section-title">Projects</div>
+<textarea id="pprojects" placeholder="Project Name - Description"></textarea>
+
+<div class="section-title">Certifications</div>
+<textarea id="pcert" 
+placeholder="Certification Name | Organization / Provider | Year
+e.g. AWS Cloud Practitioner | Amazon | 2024"></textarea>
+
+<button type="button" class="cert-btn" onclick="openCert()">+ Add Certification</button>
+
+<div class="section-title">Achievements</div>
+<textarea id="pachieve"></textarea>
+
+<div class="section-title">Resume</div>
+<input type="file" id="presume">
+<span id="resumeName"></span>
+
+<button type="button" onclick="saveProfile()">Save Profile</button>
+</form>
+</div>
+
+<!-- Certification Modal -->
+<!-- <label>Certification Name</label>
+<input type="text" id="cname">
+
+<label>Organization / Provider</label>
+<input type="text" id="corg">
+
+<label>Year of Certification</label>
+<input type="number" id="cyear" placeholder="2024"> -->
+
+
+<script>
+const nav = document.getElementById("navActions");
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+if(!user) location="index.html";
+
+nav.innerHTML = `
+<a href="profile.html" class="nav-btn">Profile</a>
+<a href="post-job.html" class="nav-btn">Post Job</a>
+<button class="logout-btn" onclick="logout()">Logout</button>
+`;
+
+function logout(){
+ localStorage.removeItem("loggedInUser");
+ location="index.html";
+}
+
+pname.value=user.name||"";
+pemail.value=user.email||"";
+psummary.value=user.summary||"";
+pskills.value=user.skills||"";
+pedu.value=user.education||"";
+pexp.value=user.exp||"";
+pprojects.value=user.projects||"";
+pcert.value=user.certifications||"";
+pachieve.value=user.achievements||"";
+if(user.resume) resumeName.innerText="Uploaded: "+user.resume;
+
+function saveProfile(){
+ user.name=pname.value;
+ user.summary=psummary.value;
+ user.skills=pskills.value;
+ user.education=pedu.value;
+ user.exp=pexp.value;
+ user.projects=pprojects.value;
+ user.certifications=pcert.value;
+ user.achievements=pachieve.value;
+ if(presume.files[0]) user.resume=presume.files[0].name;
+ localStorage.setItem("loggedInUser",JSON.stringify(user));
+ alert("Profile Updated Successfully!");
+}
+
+function openCert(){ document.getElementById("certModal").style.display="flex"; }
+function closeCert(){ document.getElementById("certModal").style.display="none"; }
+function saveCert(){
+ let txt = `${cname.value} | ${corg.value} | ${cyear.value}`;
+ pcert.value += (pcert.value ? "\n" : "") + txt;
+ closeCert();
+}
+
+</script>
+
+</body>
+</html>
