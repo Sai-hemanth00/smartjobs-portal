@@ -2,19 +2,37 @@ const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 
 if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
+    loginForm.addEventListener("submit", function(e){
         e.preventDefault();
 
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const user = users.find(
-            u => u.email === email.value && u.password === password.value
-        );
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-        if (user) {
-            localStorage.setItem("loggedInUser", JSON.stringify(user));
-            location = "dashboard.html";
-        } else {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        if(users.length === 0){
+            alert("No account found. Please register first.");
+            return;
+        }
+
+        const userByEmail = users.find(u => u.email === email);
+
+        if(!userByEmail){
+            alert("Account not found. Please register first.");
+            return;
+        }
+
+        if(userByEmail.password !== password){
             alert("Invalid email or password");
+            return;
+        }
+
+        localStorage.setItem("loggedInUser", JSON.stringify(userByEmail));
+
+        if(userByEmail.role === "recruiter"){
+            window.location.href = "dashboard.html";
+        }else{
+            window.location.href = "jobs.html";
         }
     });
 }

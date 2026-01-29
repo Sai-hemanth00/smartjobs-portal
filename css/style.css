@@ -229,7 +229,7 @@ button:hover { background: #16325c; }
 
 .auth-card {
    width: 500px;
-  height: 350px;
+  height: 0px;
   background: #fff;
   padding: 30px;
   border-radius: 12px;
