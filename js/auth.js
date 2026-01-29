@@ -14,7 +14,7 @@ if (loginForm) {
             localStorage.setItem("loggedInUser", JSON.stringify(user));
             location = "dashboard.html";
         } else {
-            alert("Invalid Login");
+            alert("Invalid email or password");
         }
     });
 }
