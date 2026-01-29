@@ -29,10 +29,8 @@ if (loginForm) {
 
         localStorage.setItem("loggedInUser", JSON.stringify(userByEmail));
 
-        if(userByEmail.role === "recruiter"){
+        if(userByEmail.role === "user"){
             window.location.href = "dashboard.html";
-        }else{
-            window.location.href = "jobs.html";
         }
     });
 }
